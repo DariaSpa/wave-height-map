@@ -26,10 +26,10 @@ const extractHmaxAttributes = () => {
   return { scaleFactor, addOffset, fillValue, missingValue };
 };
 
-const latitudes = reader.getDataVariable("latitude").slice().sort((a, b) => a - b);
-const longitudes = reader.getDataVariable("longitude").slice().sort((a, b) => a - b);
+const latitudes = reader.getDataVariable("latitude").slice();
+const longitudes = reader.getDataVariable("longitude").slice();
 const timeValues = reader.getDataVariable("time").slice();
-const waveDataRaw = reader.getDataVariable("hmax");
+const waveDataRaw = reader.getDataVariable("hmax").slice();
 
 if (!waveDataRaw || waveDataRaw.length === 0) {
   console.error("Error: Wave height data is missing or empty!");
